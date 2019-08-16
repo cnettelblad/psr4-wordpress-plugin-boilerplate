@@ -5,7 +5,7 @@ namespace Plugin\Vendor;
  * A PSR-4 compatible class loader.
  * @todo Add strict types
  */
-class Psr4ClassLoader
+class Autoloader
 {
     /**
      * @var array
