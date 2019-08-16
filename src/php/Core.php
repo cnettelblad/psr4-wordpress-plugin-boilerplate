@@ -12,51 +12,20 @@ namespace Plugin;
 class Core
 {
     /**
-     * Plugin Directory
+     * Plugin Information
      *
-     * @var string
+     * @var PluginInfo
      */
-    public $pluginDir;
-
-    /**
-     * Plugin Url
-     *
-     * @var string
-     */
-    public $pluginUrl;
-
-    /**
-     * Plugin File
-     *
-     * @var string
-     */
-    public $pluginFile;
-
-    /**
-     * Plugin Version
-     *
-     * @var string
-     */
-    public $pluginVersion;
+    public $pluginInfo;
 
     /**
      * Class constructor
      *
-     * @param string $pluginDir
-     * @param string $pluginUrl
-     * @param string $pluginFile
-     * @param string $pluginVersion
+     * @param PluginInfo $pluginInfo
      */
-    public function __construct(
-        string $pluginDir,
-        string $pluginUrl,
-        string $pluginFile,
-        string $pluginVersion = '1.0.0'
-    ) {
-        $this->pluginDir = $pluginDir;
-        $this->pluginUrl = $pluginUrl;
-        $this->pluginFile = $pluginFile;
-        $this->pluginVersion = $pluginVersion;
+    public function __construct(PluginInfo $pluginInfo)
+    {
+        $this->pluginInfo = $pluginInfo;
     }
 
     /**
