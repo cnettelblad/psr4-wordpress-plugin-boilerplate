@@ -20,17 +20,24 @@
  */
 
 // Setup Autoloading
-require_once __DIR__.'/src/php/Vendor/Autoloader.php';
+$autoloaderPath = sprintf(
+    '%1$s%2$ssrc%2$sphp%2$sVendor%2$sAutoloader.php',
+    __DIR__,
+    DIRECTORY_SEPARATOR
+);
+require_once $autoloaderPath;
 
-$autoloader = new Plugin\Vendor\Psr4ClassLoader;
-$autoloader->addPrefix('Plugin', __DIR__.'/src/php/');
+$autoloader = new Plugin\Vendor\Autoloader;
+$autoloader->addPrefix(
+    'Plugin',
+    sprintf(
+        '%1$s%2$ssrc%1$sphp%1$s',
+        __DIR__,
+        DIRECTORY_SEPARATOR
+    )
+);
 $autoloader->register();
 
 // Run plugin
-$plugin = new Plugin\Core(
-    plugin_dir_path(__FILE__),
-    plugin_url(__FILE__),
-    __FILE__,
-    '0.0.1'
-);
+$plugin = new Plugin\Core(new Plugin\PluginInfo(__FILE__));
 $plugin->init();
